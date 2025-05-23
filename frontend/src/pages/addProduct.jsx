@@ -211,7 +211,6 @@ function AddProduct() {
             {editMode ? "Update Product" : "Submit"}
           </Button>
         </form>
-        
       </Box>
 
       {/* Product List Table */}
