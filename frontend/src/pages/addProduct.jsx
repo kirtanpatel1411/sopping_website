@@ -253,6 +253,8 @@ function AddProduct() {
                     </TableCell>
                     <TableCell>
                       <Button
+                        variant="contained"
+                        color="error"
                         onClick={() => {
                           handleDelete(prod._id);
                         }}
@@ -260,10 +262,12 @@ function AddProduct() {
                         Delete
                       </Button>
                       <Button
+                        variant="contained"
                         onClick={() => {
                           handleEdit(prod._id);
                         }}
                       >
+                        {" "}
                         Edit
                       </Button>
                     </TableCell>

@@ -250,14 +250,24 @@ const Navigate = () => {
                 }}
               >
                 {token ? (
-                  <MenuItem
-                    onClick={() => {
-                      navigate("/profile");
-                      setAnchorEl(null);
-                    }}
-                  >
-                    Profile
-                  </MenuItem>
+                  <>
+                    <MenuItem
+                      onClick={() => {
+                        navigate("/profile");
+                        setAnchorEl(null);
+                      }}
+                    >
+                      Profile
+                    </MenuItem>
+                    <MenuItem
+                      onClick={() => {
+                        navigate("/logout");
+                        setAnchorEl(null);
+                      }}
+                    >
+                     Logout
+                    </MenuItem>
+                  </>
                 ) : (
                   <>
                     <MenuItem
