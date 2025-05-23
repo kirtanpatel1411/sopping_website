@@ -100,9 +100,9 @@ function AddProduct() {
       setMessage(error.response?.data?.msg || "Failed to delete product");
     }
   };
-  const handleEdit = async (id) => {
+  const handleEdit = async (_id) => {
     try {
-      const response = await axios.get(`${API_URL}/${id}`);
+      const response = await axios.get(`${API_URL}/${_id}`);
       const prod = response.data;
       setProduct({
         title: prod.title,
@@ -113,7 +113,7 @@ function AddProduct() {
       });
 
       setEditmode(true);
-      setEditId(id);
+      setEditId(_id);
       setMessage("");
     } catch (error) {
       setMessage(error.response?.data?.msg || "Failed to edit product");
@@ -136,6 +136,21 @@ function AddProduct() {
         </Typography>
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           {message && <Typography color="secondary">{message}</Typography>}
+          <Button variant="outlined" component="label" fullWidth sx={{ mt: 2 }}>
+            Upload Image
+            <input
+              type="file"
+              hidden
+              accept="image/*"
+              onChange={handleImageChange}
+            />
+          </Button>
+
+          {product.image && (
+            <Typography sx={{ mt: 1 }}>
+              Selected: {product.image.name}
+            </Typography>
+          )}
 
           <TextField
             label="Title"
@@ -184,22 +199,6 @@ function AddProduct() {
               <MenuItem value="home">Home</MenuItem>
             </Select>
           </FormControl>
-
-          <Button variant="outlined" component="label" fullWidth sx={{ mt: 2 }}>
-            Upload Image
-            <input
-              type="file"
-              hidden
-              accept="image/*"
-              onChange={handleImageChange}
-            />
-          </Button>
-
-          {product.image && (
-            <Typography sx={{ mt: 1 }}>
-              Selected: {product.image.name}
-            </Typography>
-          )}
 
           <Button
             type="submit"

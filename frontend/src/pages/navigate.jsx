@@ -340,7 +340,7 @@ const Navigate = () => {
                   </Button>
                   {cartItem.map((item) => (
                     <div
-                      key={item.id}
+                      key={item._id}
                       style={{
                         display: "flex",
                         width: isMobile ? "300px" : "400px",
@@ -398,7 +398,7 @@ const Navigate = () => {
                             >
                               <IconButton
                                 onClick={() =>
-                                  dispatch(decreaseQuantity(item.id))
+                                  dispatch(decreaseQuantity(item._id))
                                 }
                               >
                                 <RemoveIcon
@@ -420,7 +420,7 @@ const Navigate = () => {
                               </Typography>
                               <IconButton
                                 onClick={() =>
-                                  dispatch(increaseQuantity(item.id))
+                                  dispatch(increaseQuantity(item._id))
                                 }
                               >
                                 <AddIcon
@@ -435,7 +435,7 @@ const Navigate = () => {
                             <div>
                               <IconButton
                                 onClick={() =>
-                                  dispatch(removeFromCart(item.id))
+                                  dispatch(removeFromCart(item._id))
                                 }
                                 sx={{
                                   color: theme.palette.alert.main,
