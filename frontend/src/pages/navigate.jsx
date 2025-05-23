@@ -51,7 +51,7 @@ const Navigate = () => {
   const cartItem = useSelector((state) => state.cart.cartItems);
   const { token } = useContext(AuthContext);
 
-  console.log(cartItem, "cartItem")
+  console.log(cartItem, "cartItem");
   const handleOut = () => {
     cartItem.forEach((item) => {
       dispatch(CheckOut(item));
