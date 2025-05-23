@@ -278,31 +278,6 @@ const Navigate = () => {
                     </MenuItem>
                   </>
                 )}
-
-                {/* <MenuItem
-                  onClick={() => {
-                    navigate("/Login");
-                    setAnchorEl(null);
-                  }}
-                >
-                  Login
-                </MenuItem>
-                <MenuItem
-                  onClick={() => {
-                    navigate("/SignIn");
-                    setAnchorEl(null);
-                  }}
-                >
-                  SignIn
-                </MenuItem>
-                <MenuItem
-                  onClick={() => {
-                    navigate("/profile");
-                    setAnchorEl(null);
-                  }}
-                >
-                  Profile
-                </MenuItem> */}
               </Menu>
             </div>
           )}
