@@ -33,6 +33,7 @@ import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
 import { Box } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import { AuthContext } from "../context/authContext";
 
 /**
  * This is the main navigation component its purpose is to display the main navigation menu
@@ -48,6 +49,7 @@ const Navigate = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const cartItem = useSelector((state) => state.cart.cartItem);
+  const { token } = useContext(AuthContext);
 
   const handleOut = () => {
     cartItem.forEach((item) => {
@@ -247,7 +249,37 @@ const Navigate = () => {
                   },
                 }}
               >
-                <MenuItem
+                {token ? (
+                  <MenuItem
+                    onClick={() => {
+                      navigate("/profile");
+                      setAnchorEl(null);
+                    }}
+                  >
+                    Profile
+                  </MenuItem>
+                ) : (
+                  <>
+                    <MenuItem
+                      onClick={() => {
+                        navigate("/Login");
+                        setAnchorEl(null);
+                      }}
+                    >
+                      Login
+                    </MenuItem>
+                    <MenuItem
+                      onClick={() => {
+                        navigate("/SignIn");
+                        setAnchorEl(null);
+                      }}
+                    >
+                      SignIn
+                    </MenuItem>
+                  </>
+                )}
+
+                {/* <MenuItem
                   onClick={() => {
                     navigate("/Login");
                     setAnchorEl(null);
@@ -270,7 +302,7 @@ const Navigate = () => {
                   }}
                 >
                   Profile
-                </MenuItem>
+                </MenuItem> */}
               </Menu>
             </div>
           )}

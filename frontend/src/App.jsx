@@ -33,7 +33,14 @@ function App() {
               }
             />
             <Route path="logout" element={<Logout />} />
-            <Route path="addProduct" element={<AddProduct />} />
+            <Route
+              path="addProduct"
+              element={
+                <PrivateRoute>
+                  <AddProduct />
+                </PrivateRoute>
+              }
+            />
           </Route>
         </Routes>
       </BrowserRouter>

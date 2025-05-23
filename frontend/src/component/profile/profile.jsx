@@ -8,10 +8,6 @@ export default function Profile() {
 
   useEffect(() => {
     api.get("/profile").then((res) => setUser(res.data));
-    // .catch(() => {
-    //   alert("Login First");
-    //   navigate("/login");
-    // });
   }, []);
 
   return user ? (
