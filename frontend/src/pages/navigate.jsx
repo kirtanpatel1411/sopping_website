@@ -48,9 +48,10 @@ const Navigate = () => {
   const { open, handleOpen, handleClose } = useContext(CartContext);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const cartItem = useSelector((state) => state.cart.cartItem);
+  const cartItem = useSelector((state) => state.cart.cartItems);
   const { token } = useContext(AuthContext);
 
+  console.log(cartItem, "cartItem")
   const handleOut = () => {
     cartItem.forEach((item) => {
       dispatch(CheckOut(item));
@@ -249,45 +250,47 @@ const Navigate = () => {
                   },
                 }}
               >
-                {token ? (
-                  <>
-                    <MenuItem
-                      onClick={() => {
-                        navigate("/profile");
-                        setAnchorEl(null);
-                      }}
-                    >
-                      Profile
-                    </MenuItem>
-                    <MenuItem
-                      onClick={() => {
-                        navigate("/logout");
-                        setAnchorEl(null);
-                      }}
-                    >
-                     Logout
-                    </MenuItem>
-                  </>
-                ) : (
-                  <>
-                    <MenuItem
-                      onClick={() => {
-                        navigate("/Login");
-                        setAnchorEl(null);
-                      }}
-                    >
-                      Login
-                    </MenuItem>
-                    <MenuItem
-                      onClick={() => {
-                        navigate("/SignIn");
-                        setAnchorEl(null);
-                      }}
-                    >
-                      SignIn
-                    </MenuItem>
-                  </>
-                )}
+                {token
+                  ? [
+                      <MenuItem
+                        key="profile"
+                        onClick={() => {
+                          navigate("/profile");
+                          setAnchorEl(null);
+                        }}
+                      >
+                        Profile
+                      </MenuItem>,
+                      <MenuItem
+                        key="logout"
+                        onClick={() => {
+                          navigate("/logout");
+                          setAnchorEl(null);
+                        }}
+                      >
+                        Logout
+                      </MenuItem>,
+                    ]
+                  : [
+                      <MenuItem
+                        key="login"
+                        onClick={() => {
+                          navigate("/Login");
+                          setAnchorEl(null);
+                        }}
+                      >
+                        Login
+                      </MenuItem>,
+                      <MenuItem
+                        key="signin"
+                        onClick={() => {
+                          navigate("/SignIn");
+                          setAnchorEl(null);
+                        }}
+                      >
+                        SignIn
+                      </MenuItem>,
+                    ]}
               </Menu>
             </div>
           )}
@@ -355,7 +358,7 @@ const Navigate = () => {
                         }}
                       >
                         <img
-                          src={item.thumbnail}
+                          src={`http://localhost:5000/${item.image}`}
                           alt="logo"
                           style={{
                             width: "100px",

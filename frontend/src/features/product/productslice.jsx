@@ -16,7 +16,7 @@ const initialState = {
   loading: false,
   error: null,
   selectedProduct: null,
-  cartItem: [],
+  // cartItem: [],
 };
 
 const productSlice = createSlice({

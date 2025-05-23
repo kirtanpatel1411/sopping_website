@@ -11,7 +11,7 @@ const checkOutSlice = createSlice({
     CheckOut: (state, action) => {
       // Find if item already exists in checkout
       const existingItem = state.setItem.find(
-        (item) => item.id === action.payload.id
+        (item) => item._id === action.payload._id
       );
 
       if (existingItem) {

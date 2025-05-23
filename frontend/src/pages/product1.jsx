@@ -1,7 +1,7 @@
 import Button from "@mui/material/Button";
 import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { addtocart } from "../features/cartslice/cartslice";
+import { addToCart } from "../features/cartslice/cartslice";
 import { Snackbar } from "@mui/material";
 import { CartContext } from "../context/cartcontext";
 import { useContext, useState, useEffect } from "react";
@@ -52,7 +52,7 @@ const Product = () => {
   }
 
   const handleAddToCart = () => {
-    dispatch(addtocart(products));
+    dispatch(addToCart(products));
     handleOpen();
     setOpen1(true);
     setTimeout(() => {

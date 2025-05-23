@@ -15,7 +15,7 @@ import {
   Snackbar,
 } from "@mui/material";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-import { addtocart } from "../../features/cartslice/cartslice";
+import { addToCart } from "../../features/cartslice/cartslice";
 import AddIcon from "@mui/icons-material/Add";
 import "./product.scss";
 import { useTheme } from "@mui/material/styles";
@@ -44,7 +44,7 @@ const ProductCard = () => {
   }
 
   const handleAddToCart = (item) => {
-    dispatch(addtocart(item));
+    dispatch(addToCart(item));
     setSnackbarOpen(true);
     setSnackbarMessage(`${item.title} added to cart successfully`);
     setTimeout(() => {
@@ -162,17 +162,17 @@ const ProductCard = () => {
                 <AddIcon />
               </Avatar>
             </div>
-            <Snackbar
-              open={snackbarOpen}
-              autoHideDuration={3000}
-              message={snackbarMessage}
-              sx={{
-                backgroundColor: theme.palette.primary.main,
-                color: theme.palette.secondary.main,
-              }}
-            />
           </div>
         ))}
+        <Snackbar
+          open={snackbarOpen}
+          autoHideDuration={3000}
+          message={snackbarMessage}
+          sx={{
+            backgroundColor: theme.palette.primary.main,
+            color: theme.palette.secondary.main,
+          }}
+        />
       </Container>
     </>
   );

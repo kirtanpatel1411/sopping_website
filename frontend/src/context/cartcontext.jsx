@@ -10,11 +10,13 @@ export const CartProvider = ({ children }) => {
     setOpen(true);
   };
   const handleClose = () => {
-      setOpen(false);
+    setOpen(false);
   };
 
   return (
-    <CartContext.Provider value={{ cartItem, setCartItem, open, handleOpen, handleClose }}>
+    <CartContext.Provider
+      value={{ cartItem, setCartItem, open, handleOpen, handleClose }}
+    >
       {children}
     </CartContext.Provider>
   );
