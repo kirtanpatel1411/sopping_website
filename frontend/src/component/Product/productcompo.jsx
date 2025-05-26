@@ -54,7 +54,7 @@ const ProductCard = () => {
 
   const handleProductClick = (item) => {
     dispatch(setSelectedProduct(item));
-    navigate(`/product/${item.id}`);
+    navigate(`/product/${item._id}`);
   };
 
   return (
@@ -71,7 +71,7 @@ const ProductCard = () => {
         }}
       >
         {products?.map((item) => (
-          <div className="card-con" key={item.id}>
+          <div className="card-con" key={item._id}>
             <Card
               sx={{
                 width: isMobile ? 250 : 300,

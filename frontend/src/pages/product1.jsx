@@ -32,7 +32,7 @@ const Product = () => {
 
     if (allProducts && !products) {
       const selectedProduct = allProducts.find(
-        (product) => product.id === parseInt(id)
+        (product) => product._id === parseInt(id)
       );
       if (selectedProduct) {
         dispatch({ type: "product/setProducts", payload: selectedProduct });
